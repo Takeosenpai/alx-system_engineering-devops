@@ -1,2 +1,8 @@
 #!/bin/bash
-chown --from=guillaume betty hello
+# Check the current owner of the file hello
+owner=$(stat -c %U hello)
+
+# If the current owner is guillaume, change the owner to betty
+if [ "$owner" = "guillaume" ]; then
+    sudo chown betty hello
+fi
