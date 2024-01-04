@@ -1,11 +1,8 @@
-#!/bin/bash
-sudo apt-get update
-sudo apt-get install -y nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
-sudo sed -i 's/^\(server {\)/\1\n    listen 80;/' /etc/nginx/sites-available/default
-sudo kill -HUP $(cat /var/run/nginx.pid)
-if [ "$(ps aux | grep nginx | grep -v grep)" != "" ]; then
-    echo "Nginx is running."
-else
-    echo "Error: Nginx is not running."
-fi
+#!/usr/bin/env bash
+# installs nginx and configures it on a remote server
+
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+service nginx start
