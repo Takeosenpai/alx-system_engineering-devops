@@ -1,19 +1,30 @@
 #!/usr/bin/env bash
-# Usage: ./1-world_wide_web <domain> <subdomain>
+# Usage: ./0-world_wide_web <domain> [subdomain]
 # Display information about subdomains.
 
 domain_information () {
-    line=$(dig "$1"."$2" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
-    echo "$1 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+    local result=$(dig +short "$2.$1")
+    if [ -n "$result" ]; then
+        local record_type=$(dig "$2.$1" | awk '/ANSWER SECTION:/ {getline; print $4}')
+        echo "Debug: Raw dig output for $2.$1:"
+        dig "$2.$1"
+        echo "Debug: Processed output for $2.$1 - IP Address: $result, Record Type: $record_type"
+        echo "The subdomain $2 is a $record_type record and points to $result"
+    else
+        echo "Debug: Raw dig output for $2.$1:"
+        dig "$2.$1"
+        echo "Debug: No records found for the subdomain $2"
+    fi
 }
 
-if [ "$#" == 1 ]
-then
-  domain_information "$1" "www"
-  domain_information "$1" "lb-01"
-  domain_information "$1" "web-01"
-  domain_information "$1" "web-02"
-elif [ "$#" == 2 ]
-then
-  domain_information "$1" "$2"
+if [ "$#" -eq 1 ]; then
+    domain_information "$1" "www"
+    domain_information "$1" "lb-01"
+    domain_information "$1" "web-01"
+    domain_information "$1" "web-02"
+elif [ "$#" -eq 2 ]; then
+    domain_information "$1" "$2"
+else
+    echo "Usage: $0 <domain> [subdomain]"
+    exit 1
 fi
