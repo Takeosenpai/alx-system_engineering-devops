@@ -1,0 +1,24 @@
+DNS Resolution:
+
+Browser queries DNS to resolve www.google.com to an IP address.
+Request to Server IP on Appropriate Port:
+
+Browser initiates a connection to the IP address obtained from DNS, typically on port 443 for HTTPS.
+Encrypted Traffic:
+
+The communication between the browser and the server is encrypted using SSL/TLS, as indicated by "https://" in the URL.
+Firewall:
+
+The encrypted traffic passes through a firewall, which monitors and controls incoming and outgoing network traffic based on predetermined security rules.
+Load Balancer:
+
+The traffic is directed through a load balancer that distributes incoming requests across multiple servers to ensure optimal resource utilization and prevent server overload.
+Web Server Response:
+
+The load balancer forwards the request to an available web server, which responds by serving the requested web page.
+Application Server Processing:
+
+The web server communicates with an application server, which generates the content of the web page. This may involve executing scripts, processing requests, and interacting with databases.
+Database Interaction:
+
+The application server queries a database to retrieve or update data required for the web page.

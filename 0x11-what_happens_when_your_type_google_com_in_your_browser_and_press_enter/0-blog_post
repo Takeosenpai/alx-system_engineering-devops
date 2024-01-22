@@ -1,0 +1,31 @@
+When you type "https://www.google.com" into your browser and hit Enter, a complex series of events is set into motion, culminating in the display of Google's search page. In this blog post, we'll embark on a journey through the various components of the web stack, demystifying the processes that occur behind the scenes.
+
+DNS Request:
+The journey begins with a DNS (Domain Name System) request. The browser needs to translate the human-readable domain "www.google.com" into an IP address that the computer can understand. This involves querying DNS servers to obtain the correct IP address associated with the domain.
+
+TCP/IP:
+Once armed with the IP address, the browser establishes a connection using the TCP/IP (Transmission Control Protocol/Internet Protocol) suite. This reliable and connection-oriented protocol ensures the accurate delivery of data between the client (your computer) and the server (Google's servers).
+
+Firewall:
+As the data packets traverse the internet, they may encounter firewalls—security measures designed to filter and control network traffic. Firewalls play a crucial role in safeguarding against unauthorized access and potential threats, ensuring the integrity of the communication.
+
+HTTPS/SSL:
+To secure the data exchange between your browser and the server, the use of HTTPS (Hypertext Transfer Protocol Secure) is imperative. This involves the implementation of SSL (Secure Socket Layer) or its successor, TLS (Transport Layer Security), to encrypt the data, preventing eavesdropping and maintaining the confidentiality and integrity of the communication.
+
+Load-Balancer:
+In the case of a large-scale service like Google, a load balancer comes into play. Load balancing distributes incoming network traffic across multiple servers to ensure optimal resource utilization, maximize throughput, and minimize response time. This ensures that no single server is overwhelmed, contributing to a seamless user experience.
+
+Web Server:
+After successfully passing through the load balancer, the request reaches one of Google's web servers. The web server processes the request, fetching the necessary resources and generating the HTML, CSS, and JavaScript code needed to render the Google search page.
+
+Application Server:
+For more dynamic content or user-specific interactions, the web server may communicate with an application server. This server executes server-side code, handling business logic, database queries, and other dynamic functionalities before sending the processed data back to the web server.
+
+Database:
+In many cases, the application server interacts with a database to fetch or update information. For example, Google's search engine might query a massive database to retrieve relevant search results based on your query.
+
+Conclusion:
+
+The journey concludes with the web server sending the fully processed HTML, CSS, and JavaScript back to your browser, which then renders the page for you to interact with. This intricate dance of components, from DNS requests to database queries, showcases the collaborative effort of various technologies working seamlessly to deliver the content you requested.
+
+By understanding this process, developers gain valuable insights into the intricacies of the web stack, setting the stage for more informed decision-making and efficient troubleshooting in their software engineering roles.
