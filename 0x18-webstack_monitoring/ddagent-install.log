@@ -1,0 +1,11 @@
+[34m
+* Datadog Agent 7 install script v1.26.0
+[0m
+[34m
+* Installing apt-transport-https, curl and gnupg
+[0m
+Get:1 http://ftp.halifax.rwth-aachen.de/kali kali-rolling InRelease [41.5 kB]
+Get:2 https://ngrok-agent.s3.amazonaws.com buster InRelease [20.3 kB]
+Get:3 https://ngrok-agent.s3.amazonaws.com buster/main amd64 Packages [3,759 B]
+Get:4 http://ftp.halifax.rwth-aachen.de/kali kali-rolling/main amd64 Packages [19.7 MB]
+Get:5 http://ftp.halifax.rwth-aachen.de/kali kali-rolling/main amd64 Contents (deb) [47.0 MB]
